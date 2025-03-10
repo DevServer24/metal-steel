@@ -5,8 +5,18 @@ import { EmployeeService } from './employee.service';
 export class EmployeeController {
   constructor(private employeeService: EmployeeService) {}
 
-  @Post()
-  async createEmployee(@Body() data: { firstname: string; lastname: string; idnumber: number; address: string; sss: number; philhealth: number; departmentId: number }) {
-    return this.employeeService.createEmployee(data);
-  }
+  @Post('create')
+async createEmployee(@Body() data: { 
+  firstname: string; 
+  lastname: string; 
+  idnumber: number; 
+  address: string; 
+  sss: number; 
+  philhealth: number; 
+  departmentId: number;
+  role: 'EMPLOYEE' | 'ADMIN';  // ✅ Add role
+}) {
+  return this.employeeService.createEmployee(data);
+}
+
 }

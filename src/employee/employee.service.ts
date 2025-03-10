@@ -31,3 +31,17 @@ export class EmployeeService {
     });
   }
 }
+async createEmployee(data: { 
+  firstname: string; 
+  lastname: string; 
+  idnumber: number; 
+  address: string; 
+  sss: number; 
+  philhealth: number; 
+  departmentId: number;
+  role: 'EMPLOYEE' | 'ADMIN';  // ✅ Add role
+}): Promise<Employee> {
+  return this.prisma.employee.create({
+    data,
+  });
+}
