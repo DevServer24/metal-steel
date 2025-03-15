@@ -5,7 +5,7 @@ import { AdminService } from './admin.service';
 export class AdminController {
   constructor(private adminService: AdminService) {}
 
-  @Post()
+  @Post('/create-admin')
   async createAdmin(@Body() data: { username: string; name: string; password: string }) {
     return this.adminService.createAdmin(data);
   }
